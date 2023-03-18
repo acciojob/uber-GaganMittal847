@@ -1,10 +1,5 @@
 package com.driver.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +14,7 @@ public class Customer{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
 
-    private String mobNumber;
+    private String mobile;
 
     private String Password;
 
@@ -37,12 +32,12 @@ public class Customer{
         this.customerId = customerId;
     }
 
-    public String getMobNumber() {
-        return mobNumber;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setMobNumber(String mobNumber) {
-        this.mobNumber = mobNumber;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getPassword() {
@@ -61,9 +56,9 @@ public class Customer{
         this.tripBookings = tripBookings;
     }
 
-    public Customer(int customerId, String mobNumber, String password, List<TripBooking> tripBookings) {
+    public Customer(int customerId, String mobile, String password, List<TripBooking> tripBookings) {
         this.customerId = customerId;
-        this.mobNumber = mobNumber;
+        this.mobile = mobile;
         Password = password;
         this.tripBookings = tripBookings;
     }
