@@ -1,10 +1,5 @@
 package com.driver.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +12,9 @@ public class Driver{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int DriverId;
+    private int driverId;
 
-    private String mobNumber;
+    private String mobile;
 
     private String Password;
 
@@ -33,19 +28,19 @@ public class Driver{
     }
 
     public int getDriverId() {
-        return DriverId;
+        return driverId;
     }
 
     public void setDriverId(int driverId) {
-        DriverId = driverId;
+        this.driverId = driverId;
     }
 
-    public String getMobNumber() {
-        return mobNumber;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setMobNumber(String mobNumber) {
-        this.mobNumber = mobNumber;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getPassword() {
@@ -72,9 +67,9 @@ public class Driver{
         this.tripBookings = tripBookings;
     }
 
-    public Driver(int driverId, String mobNumber, String password, Cab cab, List<TripBooking> tripBookings) {
-        DriverId = driverId;
-        this.mobNumber = mobNumber;
+    public Driver(int driverId, String mobile, String password, Cab cab, List<TripBooking> tripBookings) {
+        this.driverId = driverId;
+        this.mobile = mobile;
         Password = password;
         this.cab = cab;
         this.tripBookings = tripBookings;
