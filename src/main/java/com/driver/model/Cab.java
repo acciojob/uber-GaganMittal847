@@ -8,13 +8,13 @@ import javax.persistence.*;
 
 
 
-@Table(name="cab")
-public class Cab{
+
+public class Cab {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cabid;
+    private int cabId;
 
-    private int perkmrate;
+    private int perKmRate;
 
     public Cab() {
     }
@@ -25,27 +25,20 @@ public class Cab{
     @JoinColumn
     Driver driver;
 
-    public Cab(int cabid, int perkmrate, boolean available, Driver driver) {
-        this.cabid = cabid;
-        this.perkmrate = perkmrate;
-        this.available = available;
-        this.driver = driver;
+    public int getCabId() {
+        return cabId;
     }
 
-    public int getCabid() {
-        return cabid;
+    public void setCabId(int cabId) {
+        this.cabId = cabId;
     }
 
-    public void setCabid(int cabid) {
-        this.cabid = cabid;
+    public int getPerKmRate() {
+        return perKmRate;
     }
 
-    public int getPerkmrate() {
-        return perkmrate;
-    }
-
-    public void setPerkmrate(int perkmrate) {
-        this.perkmrate = perkmrate;
+    public void setPerKmRate(int perKmRate) {
+        this.perKmRate = perKmRate;
     }
 
     public boolean isAvailable() {
@@ -61,6 +54,13 @@ public class Cab{
     }
 
     public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    public Cab(int cabId, int perKmRate, boolean available, Driver driver) {
+        this.cabId = cabId;
+        this.perKmRate = perKmRate;
+        this.available = available;
         this.driver = driver;
     }
 }

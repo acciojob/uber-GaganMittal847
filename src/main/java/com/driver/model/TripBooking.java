@@ -16,11 +16,11 @@ public class TripBooking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int TripId;
 
-    private String fromlocation;
+    private String fromLocation;
 
-    private String tolocation;
+    private String toLocation;
 
-    private int distanceInkm;
+    private int distanceInKm;
 
     @Enumerated(EnumType.STRING)
     private TripStatus tripStatus;
@@ -31,6 +31,35 @@ public class TripBooking {
     @JoinColumn
     Driver driver;
 
+    @ManyToOne
+    @JoinColumn
+    Customer customer;
+
+
+
+
+    public TripBooking(int tripId, String fromLocation, String toLocation, int distanceInKm, TripStatus tripStatus, int bill, Driver driver) {
+        TripId = tripId;
+        this.fromLocation = fromLocation;
+        this.toLocation = toLocation;
+        this.distanceInKm = distanceInKm;
+        this.tripStatus = tripStatus;
+        this.bill = bill;
+        this.driver = driver;
+        this.customer=customer;
+    }
+
+    public TripBooking() {
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     public int getTripId() {
         return TripId;
     }
@@ -39,28 +68,28 @@ public class TripBooking {
         TripId = tripId;
     }
 
-    public String getFromlocation() {
-        return fromlocation;
+    public String getFromLocation() {
+        return fromLocation;
     }
 
-    public void setFromlocation(String fromlocation) {
-        this.fromlocation = fromlocation;
+    public void setFromLocation(String fromLocation) {
+        this.fromLocation = fromLocation;
     }
 
-    public String getTolocation() {
-        return tolocation;
+    public String getToLocation() {
+        return toLocation;
     }
 
-    public void setTolocation(String tolocation) {
-        this.tolocation = tolocation;
+    public void setToLocation(String toLocation) {
+        this.toLocation = toLocation;
     }
 
-    public int getDistanceInkm() {
-        return distanceInkm;
+    public int getDistanceInKm() {
+        return distanceInKm;
     }
 
-    public void setDistanceInkm(int distanceInkm) {
-        this.distanceInkm = distanceInkm;
+    public void setDistanceInKm(int distanceInKm) {
+        this.distanceInKm = distanceInKm;
     }
 
     public TripStatus getTripStatus() {
@@ -85,31 +114,5 @@ public class TripBooking {
 
     public void setDriver(Driver driver) {
         this.driver = driver;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    @ManyToOne
-    @JoinColumn
-    Customer customer;
-
-    public TripBooking() {
-    }
-
-    public TripBooking(int tripId, String fromlocation, String tolocation, int distanceInkm, TripStatus tripStatus, int bill, Driver driver, Customer customer) {
-        TripId = tripId;
-        this.fromlocation = fromlocation;
-        this.tolocation = tolocation;
-        this.distanceInkm = distanceInkm;
-        this.tripStatus=tripStatus;
-        this.bill = bill;
-        this.driver = driver;
-        this.customer = customer;
     }
 }

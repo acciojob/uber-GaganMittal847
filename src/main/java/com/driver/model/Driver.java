@@ -17,9 +17,9 @@ public class Driver{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Driverid;
+    private int DriverId;
 
-    private String mobnumber;
+    private String mobNumber;
 
     private String Password;
 
@@ -29,31 +29,23 @@ public class Driver{
     @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
     List<TripBooking> tripBookings = new ArrayList<>();
 
-    public Driver(int driverid, String mobnumber, String password, Cab cab, List<TripBooking> tripBookings) {
-        Driverid = driverid;
-        this.mobnumber = mobnumber;
-        Password = password;
-        this.cab = cab;
-        this.tripBookings = tripBookings;
-    }
-
-    public int getDriverid() {
-        return Driverid;
-    }
-
     public Driver() {
     }
 
-    public void setDriverid(int driverid) {
-        Driverid = driverid;
+    public int getDriverId() {
+        return DriverId;
     }
 
-    public String getMobnumber() {
-        return mobnumber;
+    public void setDriverId(int driverId) {
+        DriverId = driverId;
     }
 
-    public void setMobnumber(String mobnumber) {
-        this.mobnumber = mobnumber;
+    public String getMobNumber() {
+        return mobNumber;
+    }
+
+    public void setMobNumber(String mobNumber) {
+        this.mobNumber = mobNumber;
     }
 
     public String getPassword() {
@@ -77,6 +69,14 @@ public class Driver{
     }
 
     public void setTripBookings(List<TripBooking> tripBookings) {
+        this.tripBookings = tripBookings;
+    }
+
+    public Driver(int driverId, String mobNumber, String password, Cab cab, List<TripBooking> tripBookings) {
+        DriverId = driverId;
+        this.mobNumber = mobNumber;
+        Password = password;
+        this.cab = cab;
         this.tripBookings = tripBookings;
     }
 }
